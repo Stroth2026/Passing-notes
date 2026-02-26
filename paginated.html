@@ -178,7 +178,7 @@
 </header>
 
 <nav class="top-nav" id="top-nav">
-  <a href="#" class="nav-link active" data-page="cover" onclick="showPage('cover'); return false;">Contents</a>
+  <a href="#" class="nav-link" data-page="cover" onclick="showPage('cover'); return false;">Contents:</a>
   <a href="#" class="nav-link" data-page="snow-days" onclick="showPage('snow-days'); return false;">Snow Days</a><a href="#" class="nav-link" data-page="studio-notes" onclick="showPage('studio-notes'); return false;">Studio Notes</a><a href="#" class="nav-link" data-page="art-contest" onclick="showPage('art-contest'); return false;">Student Art Contest</a><a href="#" class="nav-link" data-page="cornelius" onclick="showPage('cornelius'); return false;">Welcome, Cornelius!</a><a href="#" class="nav-link" data-page="chromebook" onclick="showPage('chromebook'); return false;">One-to-One Chromebook Initiative</a><a href="#" class="nav-link" data-page="holiday-books" onclick="showPage('holiday-books'); return false;">Holiday Books</a><a href="#" class="nav-link" data-page="scrapbook" onclick="showPage('scrapbook'); return false;">Scrapbook</a><a href="#" class="nav-link" data-page="games" onclick="showPage('games'); return false;">Let the Games Begin!</a><a href="#" class="nav-link" data-page="main-lessons" onclick="showPage('main-lessons'); return false;">What We're Learning: Main Lessons</a><a href="#" class="nav-link" data-page="dish" onclick="showPage('dish'); return false;">Gavi's Salmon with Warm Spices</a>
 </nav>
 
@@ -638,16 +638,26 @@
     // Hide all pages
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     // Show target
-    const target = document.getElementById('page-' + id);
+    var target = document.getElementById('page-' + id);
     if (target) {
       target.classList.add('active');
       window.scrollTo(0, 0);
     }
-    // Update nav
-    document.querySelectorAll('.nav-link').forEach(l => {
-      l.classList.toggle('active', l.dataset.page === id);
+    // Update nav highlights
+    document.querySelectorAll('.nav-link').forEach(function(l) {
+      l.classList.toggle('active', l.getAttribute('data-page') === id);
     });
   }
+
+  // Attach click handlers to all nav-links
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.nav-link').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showPage(this.getAttribute('data-page'));
+      });
+    });
+  });
 </script>
 
 </body>
