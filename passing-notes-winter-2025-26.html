@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passing Notes — Parkmont School | Winter 2025–26</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #3ab5c8;
+    --purple: #6b4a9e;
+    --purple-light: #8b6abf;
+    --purple-pale: #f0eaf8;
+    --teal-pale: #e8f7fa;
+    --gold: #e8c547;
+    --green: #7bbf6a;
+    --bg: #fafaf8;
+    --text: #1a1a1a;
+    --text-muted: #555;
+    --border: #e0dbd8;
+    --sidebar-width: 220px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: white;
+    border-bottom: 3px solid var(--teal);
+    padding: 22px 40px 18px;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .header-logo .school-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 1px;
+    display: block;
+  }
+
+  .header-logo .pub-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--teal);
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+
+  .header-logo .pub-name span { color: var(--purple); }
+
+  .header-meta {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .header-meta .issue-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .color-dots {
+    display: flex;
+    gap: 5px;
+    margin-top: 6px;
+    justify-content: flex-end;
+  }
+
+  .color-dots span {
+    width: 13px; height: 13px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  /* LAYOUT */
+  .layout {
+    display: flex;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    padding: 32px 0 40px;
+    position: sticky;
+    top: 83px;
+    height: calc(100vh - 83px);
+    overflow-y: auto;
+  }
+
+  .sidebar::-webkit-scrollbar { width: 3px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--border); }
+
+  .sidebar-inner {
+    border-right: 2px solid var(--border);
+    padding-right: 22px;
+  }
+
+  .toc-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .toc-list { list-style: none; }
+  .toc-list li { margin-bottom: 1px; }
+
+  .toc-list a {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 5px 10px;
+    border-left: 3px solid transparent;
+    border-radius: 0 4px 4px 0;
+    transition: all 0.16s ease;
+    line-height: 1.3;
+  }
+
+  .toc-list a:hover { color: var(--teal); border-left-color: var(--teal); background: var(--teal-pale); }
+  .toc-list a.active { color: var(--purple); border-left-color: var(--purple); background: var(--purple-pale); }
+
+  /* MAIN */
+  .main-content {
+    flex: 1;
+    padding: 40px 0 80px 48px;
+    max-width: 740px;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--teal-pale);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 52px;
+    border: 1px solid #c8ecf3;
+  }
+
+  .hero-img-placeholder {
+    width: 100%;
+    height: 240px;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--purple) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.8);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  .hero-caption {
+    padding: 13px 18px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+    background: var(--purple);
+  }
+
+  /* ARTICLES */
+  .article {
+    margin-bottom: 60px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 108px;
+  }
+
+  .article:last-child { border-bottom: none; }
+
+  .article-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 5px;
+  }
+
+  .article h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--teal);
+    line-height: 1.2;
+    margin-bottom: 18px;
+  }
+
+  .article h2.purple { color: var(--purple); }
+
+  .article p {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .article p:last-child { margin-bottom: 0; }
+
+  /* CALLOUT */
+  .callout {
+    background: var(--purple);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin: 24px 0;
+  }
+
+  .callout h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-style: italic;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--gold);
+  }
+
+  .callout p { font-size: 15px; color: rgba(255,255,255,0.92); margin-bottom: 0; }
+
+  /* PHOTO PLACEHOLDERS */
+  .photo-placeholder {
+    background: var(--teal-pale);
+    border: 1px solid #c8ecf3;
+    border-radius: 8px;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .photo-placeholder.tall { aspect-ratio: 3/4; }
+  .photo-placeholder.wide { aspect-ratio: 16/5; }
+
+  .photo-grid { display: grid; gap: 10px; margin: 18px 0 8px; }
+  .photo-grid.two { grid-template-columns: 1fr 1fr; }
+  .photo-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+
+  /* SCRAPBOOK */
+  .scrapbook-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 18px 0;
+  }
+
+  .scrapbook-item {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 2px 2px 0 var(--border);
+  }
+
+  .scrapbook-img {
+    background: var(--purple-pale);
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .scrapbook-caption {
+    padding: 9px 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .scrapbook-caption strong { color: var(--purple); font-weight: 600; }
+
+  /* HOUSES */
+  .houses-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 22px 0 14px;
+  }
+
+  .house-card {
+    border-radius: 10px;
+    padding: 16px;
+    border: 2px solid;
+  }
+
+  .house-card.teal  { border-color: var(--teal); background: var(--teal-pale); }
+  .house-card.purple { border-color: var(--purple); background: var(--purple-pale); }
+  .house-card.gold  { border-color: #c8940a; background: #fdf8e6; }
+  .house-card.green { border-color: var(--green); background: #f0f9ec; }
+  .house-card.red   { border-color: #c0392b; background: #fdf0ef; }
+  .house-card.blue  { border-color: #2980b9; background: #eaf4fd; }
+  .house-card.gray  { border-color: #aaa; background: #f5f5f5; }
+
+  .house-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+
+  .house-motto-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .house-motto {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--purple);
+    margin-bottom: 9px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .house-legend {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* LESSONS */
+  .section-header {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: white;
+    background: var(--teal);
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 3px;
+    margin: 22px 0 16px;
+  }
+
+  .lesson {
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .lesson:last-child { border-bottom: none; }
+
+  .lesson-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--teal);
+    margin-bottom: 5px;
+  }
+
+  .lesson p { font-size: 15px; }
+
+  /* RECIPE */
+  .recipe-box {
+    background: white;
+    border: 2px solid var(--teal);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+
+  .recipe-header {
+    background: var(--teal);
+    padding: 16px 22px;
+  }
+
+  .recipe-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2px;
+  }
+
+  .recipe-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .recipe-body { padding: 22px; }
+
+  .recipe-intro {
+    font-size: 15px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 15px;
+  }
+
+  .recipe-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .recipe-section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 10px;
+  }
+
+  .ingredient-list { list-style: none; }
+
+  .ingredient-list li {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    padding: 5px 0;
+    border-bottom: 1px dotted var(--border);
+    color: var(--text);
+  }
+
+  .ingredient-list li:last-child { border-bottom: none; }
+
+  .instruction-list { list-style: none; counter-reset: steps; }
+
+  .instruction-list li {
+    counter-increment: steps;
+    display: flex;
+    gap: 11px;
+    margin-bottom: 13px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .instruction-list li::before {
+    content: counter(steps);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 23px; height: 23px;
+    min-width: 23px;
+    background: var(--teal);
+    color: white;
+    border-radius: 50%;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 3px;
+  }
+
+  /* FOOTER */
+  .site-footer {
+    background: var(--purple);
+    color: white;
+    text-align: center;
+    padding: 32px 20px;
+  }
+
+  .site-footer .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+
+  .site-footer .footer-logo span { color: var(--gold); }
+
+  .site-footer p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+  }
+
+  .site-footer a { color: var(--gold); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .layout { flex-direction: column; padding: 0 16px; }
+    .sidebar { width:100%; position:static; height:auto; padding:16px 0 8px; }
+    .sidebar-inner { border-right:none; border-bottom:2px solid var(--border); padding-right:0; padding-bottom:12px; }
+    .toc-list { display:flex; flex-wrap:wrap; gap:4px; }
+    .toc-list a { border-left:none; font-size:12px; padding:4px 8px; }
+    .main-content { padding:24px 0 40px; }
+    .houses-grid, .recipe-cols, .photo-grid.two { grid-template-columns:1fr; }
+    .scrapbook-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-logo">
+    <span class="school-name">Parkmont School</span>
+    <div class="pub-name">Passing<span>Notes</span></div>
+  </div>
+  <div class="header-meta">
+    <div class="issue-label">Winter 2025–26</div>
+    <div class="color-dots">
+      <span style="background:#7bbf6a"></span>
+      <span style="background:#e8c547"></span>
+      <span style="background:#3ab5c8"></span>
+      <span style="background:#8b6abf"></span>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="sidebar" aria-label="Table of contents">
+    <div class="sidebar-inner">
+      <span class="toc-label">In This Issue</span>
+      <ul class="toc-list" id="toc">
+        <li><a href="#snow-days">Snow Days</a></li>
+        <li><a href="#studio-notes">Studio Notes</a></li>
+        <li><a href="#art-contest">Student Art Contest</a></li>
+        <li><a href="#cornelius">Welcome, Cornelius!</a></li>
+        <li><a href="#chromebook">1:1 Chromebook Initiative</a></li>
+        <li><a href="#holiday-books">Holiday Books</a></li>
+        <li><a href="#scrapbook">Scrapbook</a></li>
+        <li><a href="#games">Let the Games Begin!</a></li>
+        <li><a href="#main-lessons">What We're Learning</a></li>
+        <li><a href="#dish">The Parkmont Dish</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="main-content">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-img-placeholder">[Cover photo: Parkmont middle school students at the National Gallery of Art]</div>
+      <div class="hero-caption">Parkmont middle school students jump into experiential learning at the National Gallery of Art.</div>
+    </div>
+
+    <!-- SNOW DAYS -->
+    <article class="article" id="snow-days">
+      <div class="article-label">Campus Life</div>
+      <h2>Snow Days</h2>
+      <p>After two days of cancelled school and two days of Zoom classes, everyone was thrilled to return to campus after the January snowstorm! A huge thank you to Sam and students Mikiyas and Ebenezer who warriored through a frigid weekend to clear our sidewalks and driveways, making sure we could all get back safely.</p>
+      <p>More students clamored to pitch in with snow removal once we returned. During morning break and lunch, volunteers grabbed shovels and helped teachers carve out additional pathways. A crew of middle schoolers designed and constructed a very impressive igloo, complete with a foyer and dining area! Others embraced their inner otters, sliding gleefully across the packed snow and ice.</p>
+      <p>The enthusiasm to help clear snow didn't go unnoticed. How about an Afternoon Class called Buildings and Grounds Maintenance 101?</p>
+      <div class="photo-grid two">
+        <div class="photo-placeholder tall">[Photo: Students in the snow]</div>
+        <div class="photo-placeholder">[Photo: The student-built igloo]</div>
+      </div>
+    </article>
+
+    <!-- STUDIO NOTES -->
+    <article class="article" id="studio-notes">
+      <div class="article-label">Arts</div>
+      <h2>Studio Notes</h2>
+      <p>Students are wowing us with the work they've been doing in Imani's art classes. In Art as Utility, Imani introduced them to creative practices that merge design with everyday use. Considering style, purpose, environmental factors, and their own creative intentions, students designed and constructed original building models and sculpted models for shoes.</p>
+      <p>In Painting 101, they've been exploring essential techniques and various painting mediums while also studying influential painters and movements of the past and present. Students are creating original paintings and honing their skills by reproducing a famous painting of their choice — drawing inspiration from the intense futurism of John Blanche, Monet's Giverny idylls, and Albert Bierstadt's epic masterpiece <em>The Last of the Buffalo</em>, among other works.</p>
+      <p>Meanwhile, the middle schoolers have been learning about public art and working on their teamwork and artmaking skills in Public Art and Mural Making with Imani. The year-long class will culminate in student-designed and produced murals on the walls here at Parkmont!</p>
+      <div class="photo-grid three">
+        <div class="photo-placeholder">[Photo: Art student at work]</div>
+        <div class="photo-placeholder">[Photo: Color wheel studies]</div>
+        <div class="photo-placeholder">[Photo: Sculpted shoe model]</div>
+      </div>
+      <div class="callout">
+        <h3>Congratulations, Imani!</h3>
+        <p>We are absolutely thrilled to share that Imani received the Award for Excellence in Visual Arts at the 40th Annual Mayor's Arts Awards this fall! The Award for Excellence in Visual Arts honors those making significant contributions to the city's visual arts landscape. A well-deserved honor — and very, very exciting!</p>
+      </div>
+    </article>
+
+    <!-- ART CONTEST -->
+    <article class="article" id="art-contest">
+      <div class="article-label">Student Life</div>
+      <h2>Student Art Contest</h2>
+      <p>In November, Parkmont senior Xavier organized an art contest that drew impressive entries from all ages. The optional theme was School Spirit. While many opted to follow their own muses, the contest did indeed generate lots of enthusiastic school spirit. Congratulations to Parnyan, whose dreamy palm tree won first place!</p>
+      <p>We love everything about this contest: the optional theme, Xavier's leadership in putting it together, the energy of the contestants, and the incredible creativity they shared with the whole school. We hear there might be an Art Contest Part Two, this time with 3-D works included. We can't wait!</p>
+      <div class="photo-grid three">
+        <div class="photo-placeholder">[Photo: Parnyan with first-place painting]</div>
+        <div class="photo-placeholder">[Photo: Bull drawing entry]</div>
+        <div class="photo-placeholder">[Photo: Student with artwork]</div>
+      </div>
+    </article>
+
+    <!-- CORNELIUS -->
+    <article class="article" id="cornelius">
+      <div class="article-label">Meet the Newest Parkmont Student</div>
+      <h2>Welcome, Cornelius!</h2>
+      <p>Parkmont has a new school pet! Specifically, a juvenile albino cornsnake named Cornelius. Thank you to Annabelle for making such a persuasive case for a pet snake, and to Gabo, who coordinated bringing Cornelius and all the necessary equipment to school.</p>
+      <p>Cornelius was only about 10" when he first moved into the Southeast Room in November. By February 1, he'd almost doubled in size. If Cornelius is male, which we think is likely, he'll be about 3' long when fully grown. Why a pet snake? They're easy to take care of, they aren't venomous, they're interesting, and — importantly — no one has snake allergies!</p>
+      <p>Students have found that watching him for a few minutes can help them calm down or refocus during class. He has already figured in many class stories and lessons. For those of us who grimace at the thought of snakes, Cornelius has proven to be a charismatic ambassador of <em>Serpentes</em>. He's just so cute!</p>
+      <div class="photo-grid two">
+        <div class="photo-placeholder">[Photo: Student with Cornelius on their arm]</div>
+        <div class="photo-placeholder">[Photo: Cornelius in his habitat]</div>
+      </div>
+    </article>
+
+    <!-- CHROMEBOOK -->
+    <article class="article" id="chromebook">
+      <div class="article-label">Technology</div>
+      <h2>One-to-One Chromebook Initiative</h2>
+      <p>All students received a Chromebook for academic use at school and at home this fall as part of Parkmont's new one-to-one Chromebook program. In past years, about half the students used school-owned Chromebooks while the rest brought their own devices. More than halfway through the school year, it's clear that switching to an all school-owned Chromebook environment has made a positive difference, says Sam Graul, Parkmont's technology and facilities coordinator and longtime teacher.</p>
+      <p>For starters, the new approach keeps our devices and system more secure. All of the Chromebooks are managed under the protections and added security of Parkmont's Google Workspace domain. It's also a lot more efficient: when everyone has the same hardware and apps, teachers and students can share materials without compatibility hitches.</p>
+      <p>Perhaps just as important has been the effect on student engagement. Like most schools, Parkmont blocks certain web content, including most social media and AI chatbots. The presence of just a few devices able to bypass our system's controls has an outsize negative effect in the classroom. With everyone on the same system, the school can more effectively monitor and manage access to the Web's tempting feast of distractions. There are exceptions to the policy for students who use assistive technology, but the new policy has made it easier for teachers to help students use that tech because they're not also figuring out the quirks of five other different devices.</p>
+      <p>To be sure, the lockdown on games and social media apps has not been universally applauded! At a recent school meeting, students called for lifting the app blocks after school hours, arguing that blocking those encourages students to try to hack the system, which could make their devices vulnerable to viruses and other malware. Sam wasn't persuaded that day, but it's probably a safe bet that the debate will continue!</p>
+      <div class="photo-placeholder wide" style="margin-top:18px;">[Photo: Two students working on Chromebooks]</div>
+    </article>
+
+    <!-- HOLIDAY BOOKS -->
+    <article class="article" id="holiday-books">
+      <div class="article-label">Tradition</div>
+      <h2>Holiday Books</h2>
+      <p>With help from the Popkin Fund, every student, teacher, and staff member at Parkmont receives a book of their choice to read over winter break. The teachers hand them out at Announcements, and we all enjoy seeing what everyone else receives. <em>The Fault in Our Stars</em> is a recurring favorite, and there are usually at least one Stephen King novel and <em>Diary of a Wimpy Kid</em> in the mix. Cookbooks, too, always make the list.</p>
+      <p>This year, when one student received <em>The Crème Brûlée Cookbook</em>, Nijole spoke for all of us when she said, "Ooh! My new best friend!" <a href="#" style="color:var(--teal);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;">Learn more about the Popkin Fund →</a></p>
+      <div class="photo-placeholder wide" style="margin-top:18px;">[Photo: Students holding up their holiday books at Announcements]</div>
+    </article>
+
+    <!-- SCRAPBOOK -->
+    <article class="article" id="scrapbook">
+      <div class="article-label">Photos</div>
+      <h2 class="purple">Scrapbook</h2>
+      <div class="scrapbook-grid">
+        <div class="scrapbook-item">
+          <div class="scrapbook-img">[Pajama Day]</div>
+          <div class="scrapbook-caption"><strong>A —</strong> Day 1 of Spirit Week: Pajama Day! A very chilly Pajama Day.</div>
+        </div>
+        <div class="scrapbook-item">
+          <div class="scrapbook-img">[Butler's Orchard hay ride]</div>
+          <div class="scrapbook-caption"><strong>B —</strong> Leo and fellow middle schoolers enjoyed a pre-Halloween hay ride at Butler's Orchard.</div>
+        </div>
+        <div class="scrapbook-item">
+          <div class="scrapbook-img">[Teachers at campfire]</div>
+          <div class="scrapbook-caption"><strong>C —</strong> S'mores aren't just for students! Teachers gather around the campfire at their fall retreat.</div>
+        </div>
+        <div class="scrapbook-item">
+          <div class="scrapbook-img">[Gavi with frog]</div>
+          <div class="scrapbook-caption"><strong>D —</strong> Gavi shows off a frog in Rock Creek.</div>
+        </div>
+        <div class="scrapbook-item">
+          <div class="scrapbook-img">[Solomon at NGA Paint &amp; Play]</div>
+          <div class="scrapbook-caption"><strong>E —</strong> Solomon checks out the Paint &amp; Play at the National Gallery of Art.</div>
+        </div>
+        <div class="scrapbook-item">
+          <div class="scrapbook-img">[Cal and Ebenezer]</div>
+          <div class="scrapbook-caption"><strong>F —</strong> Cal and Ebenezer hanging out.</div>
+        </div>
+        <div class="scrapbook-item">
+          <div class="scrapbook-img">[Markoff's Haunted Forest]</div>
+          <div class="scrapbook-caption"><strong>G —</strong> The whole Upper School at Markoff's Haunted Forest. L to R: Noah, Mikiyas, Cristian, Fletcher, Nick, Rafa, and Max.</div>
+        </div>
+        <div class="scrapbook-item">
+          <div class="scrapbook-img">[Colonial Williamsburg]</div>
+          <div class="scrapbook-caption"><strong>H —</strong> Jai, Owen, Nicky, Micah, and Ethan in Colonial Williamsburg. Bunny ears not historically accurate.</div>
+        </div>
+        <div class="scrapbook-item">
+          <div class="scrapbook-img">[Lunchtime hoops]</div>
+          <div class="scrapbook-caption"><strong>I —</strong> Lunchtime hoops.</div>
+        </div>
+        <div class="scrapbook-item">
+          <div class="scrapbook-img">[Fall Adventure Trip to Calleva]</div>
+          <div class="scrapbook-caption"><strong>J —</strong> Fall Adventure Trip to Calleva!</div>
+        </div>
+        <div class="scrapbook-item">
+          <div class="scrapbook-img">[Esther at Planet Word]</div>
+          <div class="scrapbook-caption"><strong>K —</strong> Esther paints the mood at Planet Word.</div>
+        </div>
+        <div class="scrapbook-item">
+          <div class="scrapbook-img">[Día de los Muertos display]</div>
+          <div class="scrapbook-caption"><strong>L —</strong> Mikiyas and Mak at the National Museum of the American Indian's Día de los Muertos display.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- LET THE GAMES BEGIN -->
+    <article class="article" id="games">
+      <div class="article-label">Community</div>
+      <h2>Let the Games Begin!</h2>
+      <p>Since October, Parkmont's Advisory groups have been locked in an epic (and very friendly) quest. We call it The Tournament of Advisories.</p>
+      <p>The premise is simple. Each advisory forms a House, complete with colors, coat of arms, motto, and legendary origin story. The Houses then compete in challenges throughout the year, earning points toward the ultimate prize: The Parkmont Paragon of Pride.</p>
+      <p>Parkmont's Programs Coordinator <em>ne plus ultra</em> Mel Kates masterminded the program. The students and their advisors have taken it from there, shaping legends, parsing mottos, and designing crests. In building worlds for their Advisory Houses, they're getting to know each other better as individuals and teammates, deepening their sense of connection.</p>
+      <p>Students can earn points for their Advisory House in bi-weekly lunchtime trivia quizzes, participation in Spirit Week, School Meeting leadership, and other challenges posed by teachers and staff throughout the year.</p>
+
+      <div class="houses-grid">
+        <div class="house-card teal">
+          <div class="house-name">Florence's Flying Squirrels</div>
+          <div class="house-motto-label">Motto</div>
+          <div class="house-motto">If thou shall fly, thou shall soar.</div>
+          <div class="house-legend">One day an acorn fell out of a tree and landed on a squirrel's head. It was a magical golden acorn, and as soon as the squirrel heard its promise, dragon wings sprouted from its sides! The squirrel has been trying to catch the golden acorn ever since…</div>
+        </div>
+        <div class="house-card purple">
+          <div class="house-name">Heck Nags</div>
+          <div class="house-motto-label">Motto</div>
+          <div class="house-motto">Knowing is better than wondering.</div>
+          <div class="house-legend">Long ago the night sky was only black, deep and endless. In that darkness lived the Heck Nags — mysterious horse-shaped spirits like flowing dark purple water with eyes glowing dark blue, galloping silently across the heavens carrying questions mortals whispered but never dared to answer.</div>
+        </div>
+        <div class="house-card green">
+          <div class="house-name">Los Ocho Poco Locos</div>
+          <div class="house-motto-label">Motto</div>
+          <div class="house-motto">¡Vámonos!</div>
+          <div class="house-legend">Loosely translated to "The Slightly Crazy Eight" — a reference to our eight members, the prevalence of Spanish speakers, and how we celebrate our unique eccentricities. We keep our eyes on the prize.</div>
+        </div>
+        <div class="house-card gold">
+          <div class="house-name">House of the Eclipse</div>
+          <div class="house-motto-label">Motto</div>
+          <div class="house-motto">What's in the dark comes to light.</div>
+          <div class="house-legend">Within the realm of Parkmont there are the Daybreakers and Nightwalkers. When the Daybreakers spread their wings and leave, the old Nightwalkers pick up the mantle and become the new Daybreakers — protectors of the castle.</div>
+        </div>
+        <div class="house-card blue">
+          <div class="house-name">House of the Eagle</div>
+          <div class="house-motto-label">Motto</div>
+          <div class="house-motto">Unfocused and determined.</div>
+          <div class="house-legend">Long ago there was a wizard named Rhodes. He had three squires he taught many things. One turns out to be a queen of her own kingdom. The other two are almost ready for their own quest.</div>
+        </div>
+        <div class="house-card red">
+          <div class="house-name">Chill Cheetahs</div>
+          <div class="house-motto-label">Motto</div>
+          <div class="house-motto">Stay woke!</div>
+          <div class="house-legend">One day we were all running from different cheetahs — a metaphor for running from what is scary and unsafe — and needed a safe space to recuperate. All of us found one another and ended up finding family.</div>
+        </div>
+      </div>
+      <div class="house-card gray" style="margin-bottom:20px;">
+        <div class="house-name">The Underground Dwellers</div>
+        <div class="house-motto-label">Motto</div>
+        <div class="house-motto" style="color:#666;">Pacificus, Tranquillitas, Atlaticus — Calm and Peaceful dwellers of the Down Deep.</div>
+        <div class="house-legend">We are descendants of the lost Atlatians, calm and comfortable in the vast, deep spaces below all others.</div>
+      </div>
+
+      <p style="font-style:italic; color:var(--purple);">To all Parkmont students and their Advisory Houses — may your House be bold, your trivia answers precise, and your teamwork inspiring. And to Mel, Advisor to House of the Eclipse but truly a queen, thank you for bringing magic to the House of Parkmont!</p>
+    </article>
+
+    <!-- WHAT WE'RE LEARNING -->
+    <article class="article" id="main-lessons">
+      <div class="article-label">Curriculum</div>
+      <h2>What We're Learning: Main Lessons</h2>
+      <p>Held from 10–12 every day, Parkmont's Main Lessons combine traditional academic disciplines with student interests and are the foundation of our schedule. Here are some of the options from Sessions 2 and 3.</p>
+
+      <div class="section-header">Middle School</div>
+
+      <div class="lesson">
+        <div class="lesson-name">Crime Lab</div>
+        <p>Become a super science sleuth while performing crime-solving, case-breaking, and crook-catching activities. From dusting for fingerprints to analyzing handwriting and identifying ink found on a ransom note, this course gives students a firsthand look at how detectives and forensic scientists use science to solve real-life crimes.</p>
+      </div>
+      <div class="lesson">
+        <div class="lesson-name">Geography</div>
+        <p>Students study the interconnectedness of cultures, environments, and regions worldwide. Through map skills, cultural exploration, and environmental inquiry, students gain a foundational understanding of geographic concepts — from physical features to human activities and global issues.</p>
+      </div>
+      <div class="lesson">
+        <div class="lesson-name">Robotics</div>
+        <p>Starting with the history of robotics and AI, students learn what goes into building and programming a robot, assemble closed circuits, learn block-based coding with Micro:bits and in Scratch, and finish the session by building their very own robots using the Lego Robot Inventor Kit.</p>
+      </div>
+
+      <div class="section-header">Upper School</div>
+
+      <div class="lesson">
+        <div class="lesson-name">Comparative Government</div>
+        <p>Students learn traditional and modern approaches to comparing governments, analyze historical events and how they're presented in media and literature, and build toward a final project comparing a U.S. institution to its equivalent abroad.</p>
+      </div>
+      <div class="lesson">
+        <div class="lesson-name">Journalism and Media Studies</div>
+        <p>Two goals: become more media literate, and improve writing and reading skills. Students analyze current events, write their own articles, watch the news, listen to podcasts, and practice journalistic writing.</p>
+      </div>
+      <div class="lesson">
+        <div class="lesson-name">Spanish 2b</div>
+        <p>By the end of this session, students can speak comfortably about past and present events, discuss daily routines, vacations, shopping, and more — and intelligently discuss geographical, cultural, and historical aspects of Spain and Latin American culture in America.</p>
+      </div>
+      <div class="lesson">
+        <div class="lesson-name">Research Writing</div>
+        <p>An introduction to the fundamental elements of the college research paper. Students acquire skills in topic selection, research and note-taking, developing an efficient outline and thesis, and accurate documentation through in-text citations and a Works Cited list.</p>
+      </div>
+      <div class="lesson">
+        <div class="lesson-name">Anatomy and Physiology</div>
+        <p>Starting with the anatomy of the human body, students compare the physiologies of the 5 kingdoms and gain a deep appreciation of the roles of the different organ systems — at both macroscopic and microscopic levels.</p>
+      </div>
+      <div class="lesson">
+        <div class="lesson-name">Computer Science</div>
+        <p>A high-level overview of the world of computing — from the origin of computers to writing code in JavaScript, HTML, and CSS — culminating in building a complete webpage. All topics are connected to how technology affects us today and where it's headed.</p>
+      </div>
+
+      <div class="photo-placeholder wide" style="margin-top:20px;">[Photo: Students on a field trip]</div>
+    </article>
+
+    <!-- THE PARKMONT DISH -->
+    <article class="article" id="dish">
+      <div class="article-label">The Parkmont Dish</div>
+      <h2>Gavi's Salmon with Warm Spices</h2>
+      <div class="recipe-box">
+        <div class="recipe-header">
+          <div class="recipe-eyebrow">The Parkmont Dish</div>
+          <h3>Gavi's Salmon with Warm Spices</h3>
+        </div>
+        <div class="recipe-body">
+          <p class="recipe-intro">A dinner that's both bright and hearty really hits the spot on a cold evening. This recipe for baked salmon with yogurt and warm spices — generously shared by Gavi, 6th grade — looks beautiful and tastes delicious. Gavi suggests serving the dish with couscous. If you have leftovers, you're lucky: they'll be terrific on a salad the next day. Enjoy!</p>
+          <div class="recipe-cols">
+            <div>
+              <div class="recipe-section-title">Ingredients</div>
+              <ul class="ingredient-list">
+                <li>4 salmon fillets (about 6 oz each)</li>
+                <li>¾ cup plain Greek yogurt</li>
+                <li>2 tsp garam masala</li>
+                <li>1 tsp ground coriander</li>
+                <li>1 tsp ground cumin</li>
+                <li>¼ tsp turmeric, if desired</li>
+                <li>2 cloves garlic, minced (or ½ tsp garlic powder)</li>
+                <li>1 Tbsp fresh lemon juice, plus more for serving</li>
+                <li>¾ tsp salt, or to taste</li>
+                <li>¼ tsp black pepper, or to taste</li>
+                <li>2 Tbsp chopped fresh mint or parsley, or more to taste</li>
+              </ul>
+            </div>
+            <div>
+              <div class="recipe-section-title">Instructions</div>
+              <ol class="instruction-list">
+                <li>In a bowl, mix together the yogurt, spices, garlic, lemon juice, salt, and pepper.</li>
+                <li>Pat the salmon fillets dry with paper towels. Coat each fillet generously with the yogurt mixture. You can cook immediately or let marinate for up to 30 minutes.</li>
+                <li><strong>Conventional oven:</strong> Preheat to 350°F. Place salmon on a lined baking sheet and bake for 18–25 minutes, or until it flakes easily with a fork.<br><br><strong>Air fryer:</strong> Preheat to 400°F. Cook for 12–15 minutes, or until it flakes easily with a fork.</li>
+                <li>Squeeze lemon juice over the fish and garnish with the fresh herbs.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">Parkmont<span>School</span></div>
+  <p>
+    4842 Sixteenth Street, N.W. · Washington, D.C. 20011<br>
+    (202) 726-0740 · Admissions: Ext. 2<br>
+    <a href="mailto:info@parkmont.org">info@parkmont.org</a> · <a href="http://www.parkmont.org">www.parkmont.org</a>
+  </p>
+</footer>
+
+<script>
+  const articles = document.querySelectorAll('.article');
+  const tocLinks = document.querySelectorAll('#toc a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+
+  articles.forEach(a => observer.observe(a));
+</script>
+</body>
+</html>
