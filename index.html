@@ -83,10 +83,24 @@
   .photo-caption { font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--text-muted); font-style: italic; margin-top: 6px; }
 
   /* SCRAPBOOK */
-  .scrapbook-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
-  .scrapbook-item { background: white; border-radius: 8px; border: 1px solid var(--border); overflow: hidden; box-shadow: 2px 2px 0 var(--border); }
-  .scrapbook-item img { width: 100%; height: 150px; object-fit: cover; display: block; }
-  .scrapbook-caption { padding: 9px 12px; font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--text); line-height: 1.4; }
+  .scrapbook-grid { position: relative; margin: 30px 0 40px; display: flex; flex-wrap: wrap; gap: 0; }
+  .scrapbook-item { position: relative; background: white; padding: 8px 8px 28px; box-shadow: 2px 4px 12px rgba(0,0,0,0.18); margin: -8px 6px 18px; flex: 0 0 auto; width: 44%; z-index: 1; transition: z-index 0s; }
+  .scrapbook-item:hover { z-index: 10; }
+  .scrapbook-item:nth-child(1)  { transform: rotate(-2.5deg); margin-top: 0; }
+  .scrapbook-item:nth-child(2)  { transform: rotate(1.8deg); margin-top: 10px; }
+  .scrapbook-item:nth-child(3)  { transform: rotate(2.2deg); margin-top: -15px; }
+  .scrapbook-item:nth-child(4)  { transform: rotate(-1.5deg); margin-top: -5px; }
+  .scrapbook-item:nth-child(5)  { transform: rotate(-3deg); margin-top: -10px; }
+  .scrapbook-item:nth-child(6)  { transform: rotate(2.8deg); margin-top: 5px; }
+  .scrapbook-item:nth-child(7)  { transform: rotate(1.2deg); margin-top: -8px; }
+  .scrapbook-item:nth-child(8)  { transform: rotate(-2deg); margin-top: 0; }
+  .scrapbook-item:nth-child(9)  { transform: rotate(3deg); margin-top: -12px; }
+  .scrapbook-item:nth-child(10) { transform: rotate(-1.8deg); margin-top: 8px; }
+  .scrapbook-item:nth-child(11) { transform: rotate(2.5deg); margin-top: -6px; }
+  .scrapbook-item:nth-child(12) { transform: rotate(-2.2deg); margin-top: 4px; }
+  .scrapbook-item:nth-child(13) { transform: rotate(1.5deg); margin-top: -10px; }
+  .scrapbook-item img { width: 100%; height: 160px; object-fit: cover; display: block; }
+  .scrapbook-caption { padding: 6px 4px 0; font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--text-muted); line-height: 1.4; }
   .scrapbook-caption strong { color: var(--purple); font-weight: 600; }
 
   /* HOUSES */
@@ -192,7 +206,7 @@
 
     <!-- HERO -->
     <div class="hero">
-      <img src="Field_trip_Kids_jumping_NGA_Miyah_ari_genny_leo_z_jumping_from_fountainIMG_9011__1_.jpg" alt="Parkmont middle school students at the National Gallery of Art">
+      <img src="images/Field_trip_Kids_jumping_NGA_Miyah_ari_genny_leo_z_jumping_from_fountainIMG_9011__1_.jpg" alt="Parkmont middle school students at the National Gallery of Art">
       <div class="hero-caption">Parkmont middle school students jump into experiential learning at the National Gallery of Art.</div>
     </div>
 
@@ -204,8 +218,8 @@
       <p>More students clamored to pitch in with snow removal once we returned. During morning break and lunch, volunteers grabbed shovels and helped teachers carve out additional pathways. A crew of middle schoolers designed and constructed a very impressive igloo, complete with a foyer and dining area! Others embraced their inner otters, sliding gleefully across the packed snow and ice.</p>
       <p>The enthusiasm to help clear snow didn't go unnoticed. How about an Afternoon Class called Buildings and Grounds Maintenance 101?</p>
       <div class="photo-grid two">
-        <img src="Students_classroom_science_Miles_Sam_S_florence_s_class.jpg" alt="Students in the snow" class="photo-tall">
-        <img src="Igloo_Wesley_waving.jpg" alt="The student-built igloo">
+        <img src="images/Students_classroom_science_Miles_Sam_S_florence_s_class.jpg" alt="Students in the snow" class="photo-tall">
+        <img src="images/Igloo_Wesley_waving.jpg" alt="The student-built igloo">
       </div>
     </article>
 
@@ -217,12 +231,12 @@
       <p>In Painting 101, they've been exploring essential techniques and various painting mediums while also studying influential painters and movements of the past and present. Students are creating original paintings and honing their skills by reproducing a famous painting of their choice — drawing inspiration from the intense futurism of John Blanche, Monet's Giverny idylls, and Albert Bierstadt's epic masterpiece <em>The Last of the Buffalo</em>, among other works.</p>
       <p>Meanwhile, the middle schoolers have been learning about public art and working on their teamwork and artmaking skills in Public Art and Mural Making with Imani. The year-long class will culminate in student-designed and produced murals on the walls here at Parkmont!</p>
       <div class="photo-grid three">
-        <img src="art_class_Eben_car_model.jpg" alt="Art student at work">
-        <img src="art_class_geo_dome_no_faces.jpg" alt="Color wheel studies on display">
-        <img src="art_class_shoe_design_finished_star_sneaker.jpg" alt="Sculpted shoe model">
+        <img src="images/art_class_Eben_car_model.jpg" alt="Art student at work">
+        <img src="images/art_class_geo_dome_no_faces.jpg" alt="Color wheel studies on display">
+        <img src="images/art_class_shoe_design_finished_star_sneaker.jpg" alt="Sculpted shoe model">
       </div>
       <div class="callout">
-        <div class="callout-img"><img src="Class_descriptions_kim_and_marly_in_science_class.jpg" alt="Imani at the Mayor's Arts Awards"></div>
+        <div class="callout-img"><img src="images/Class_descriptions_kim_and_marly_in_science_class.jpg" alt="Imani at the Mayor's Arts Awards"></div>
         <div class="callout-text">
           <h3>Congratulations, Imani!</h3>
           <p>We are absolutely thrilled to share that Imani received the Award for Excellence in Visual Arts at the 40th Annual Mayor's Arts Awards this fall! The Award for Excellence in Visual Arts honors those making significant contributions to the city's visual arts landscape. A well-deserved honor — and very, very exciting!</p>
@@ -237,9 +251,9 @@
       <p>In November, Parkmont senior Xavier organized an art contest that drew impressive entries from all ages. The optional theme was School Spirit. While many opted to follow their own muses, the contest did indeed generate lots of enthusiastic school spirit. Congratulations to Parnyan, whose dreamy palm tree won first place!</p>
       <p>We love everything about this contest: the optional theme, Xavier's leadership in putting it together, the energy of the contestants, and the incredible creativity they shared with the whole school. We hear there might be an Art Contest Part Two, this time with 3-D works included. We can't wait!</p>
       <div class="photo-grid three">
-        <img src="Students_outdoors_eben_parnyan_kim_rock_creek_park_middle_school_nature.jpg" alt="Parnyan with first-place palm tree painting">
-        <img src="Fieldtrip_students_museum_middle_school_one_boy_with_glasses_at_display.jpg" alt="Bull drawing entry">
-        <img src="art_class_skyler_and___shoe_design.jpg" alt="Student with artwork">
+        <img src="images/Students_outdoors_eben_parnyan_kim_rock_creek_park_middle_school_nature.jpg" alt="Parnyan with first-place palm tree painting">
+        <img src="images/Fieldtrip_students_museum_middle_school_one_boy_with_glasses_at_display.jpg" alt="Bull drawing entry">
+        <img src="images/art_class_skyler_and___shoe_design.jpg" alt="Student with artwork">
       </div>
     </article>
 
@@ -251,8 +265,8 @@
       <p>Cornelius was only about 10" when he first moved into the Southeast Room in November. By February 1, he'd almost doubled in size. If Cornelius is male, which we think is likely, he'll be about 3' long when fully grown. Why a pet snake? They're easy to take care of, they aren't venomous, they're interesting, and — importantly — no one has snake allergies!</p>
       <p>Students have found that watching him for a few minutes can help them calm down or refocus during class. He has already figured in many class stories and lessons. For those of us who grimace at the thought of snakes, Cornelius has proven to be a charismatic ambassador of <em>Serpentes</em>. He's just so cute!</p>
       <div class="photo-grid two">
-        <img src="Cornelius_gabo_and_cornelius.jpg" alt="Student with Cornelius on their arm">
-        <img src="Cornelius_gabo_and_cornelius.jpg" alt="Cornelius in his habitat">
+        <img src="images/Cornelius_gabo_and_cornelius.jpg" alt="Student with Cornelius on their arm">
+        <img src="images/Cornelius_gabo_and_cornelius.jpg" alt="Cornelius in his habitat">
       </div>
     </article>
 
@@ -264,7 +278,7 @@
       <p>For starters, the new approach keeps our devices and system more secure. All of the Chromebooks are managed under the protections and added security of Parkmont's Google Workspace domain. It's also a lot more efficient: when everyone has the same hardware and apps, teachers and students can share materials without compatibility hitches.</p>
       <p>Perhaps just as important has been the effect on student engagement. Like most schools, Parkmont blocks certain web content, including most social media and AI chatbots. The presence of just a few devices able to bypass our system's controls has an outsize negative effect in the classroom. With everyone on the same system, the school can more effectively monitor and manage access to the Web's tempting feast of distractions. There are exceptions to the policy for students who use assistive technology, but the new policy has made it easier for teachers to help students use that tech because they're not also figuring out the quirks of five other different devices.</p>
       <p>To be sure, the lockdown on games and social media apps has not been universally applauded! At a recent school meeting, students called for lifting the app blocks after school hours, arguing that blocking those encourages students to try to hack the system, which could make their devices vulnerable to viruses and other malware. Sam wasn't persuaded that day, but it's probably a safe bet that the debate will continue!</p>
-      <img src="Sarah_and_Skyler_working_in_class.jpg" alt="Two students working on Chromebooks" class="photo-full">
+      <img src="images/Sarah_and_Skyler_working_in_class.jpg" alt="Two students working on Chromebooks" class="photo-full">
     </article>
 
     <!-- HOLIDAY BOOKS -->
@@ -273,7 +287,7 @@
       <h2>Holiday Books</h2>
       <p>With help from the Popkin Fund, every student, teacher, and staff member at Parkmont receives a book of their choice to read over winter break. The teachers hand them out at Announcements, and we all enjoy seeing what everyone else receives. <em>The Fault in Our Stars</em> is a recurring favorite, and there are usually at least one Stephen King novel and <em>Diary of a Wimpy Kid</em> in the mix. Cookbooks, too, always make the list.</p>
       <p>This year, when one student received <em>The Crème Brûlée Cookbook</em>, Nijole spoke for all of us when she said, "Ooh! My new best friend!" <a href="#" style="color:var(--teal);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;">Learn more about the Popkin Fund →</a></p>
-      <img src="caleb_and_kavin_at_picnic_IMG_8894.jpg" alt="Students holding up their holiday books" class="photo-full" style="height:300px;">
+      <img src="images/caleb_and_kavin_at_picnic_IMG_8894.jpg" alt="Students holding up their holiday books" class="photo-full" style="height:300px;">
     </article>
 
     <!-- SCRAPBOOK -->
@@ -282,55 +296,55 @@
       <h2 class="purple">Scrapbook</h2>
       <div class="scrapbook-grid">
         <div class="scrapbook-item">
-          <img src="scrapbook_hayride_isla_mattias_wesley_matt.jpg" alt="Pajama Day">
+          <img src="images/scrapbook_hayride_isla_mattias_wesley_matt.jpg" alt="Pajama Day">
           <div class="scrapbook-caption"><strong>A —</strong> Day 1 of Spirit Week: Pajama Day! A very chilly Pajama Day.</div>
         </div>
         <div class="scrapbook-item">
-          <img src="Zee__Ivan__Gavi__Annie_on_hayride.jpg" alt="Hay ride at Butler's Orchard">
+          <img src="images/Zee__Ivan__Gavi__Annie_on_hayride.jpg" alt="Hay ride at Butler's Orchard">
           <div class="scrapbook-caption"><strong>B —</strong> Leo and fellow middle schoolers enjoyed a pre-Halloween hay ride at Butler's Orchard.</div>
         </div>
         <div class="scrapbook-item">
-          <img src="Teachers_retreat_campfire.jpg" alt="Teachers at campfire">
+          <img src="images/Teachers_retreat_campfire.jpg" alt="Teachers at campfire">
           <div class="scrapbook-caption"><strong>C —</strong> S'mores aren't just for students! Teachers gather around the campfire at their fall retreat.</div>
         </div>
         <div class="scrapbook-item">
-          <img src="Students_outdoors_eben_parnyan_kim_rock_creek_park_middle_school_nature.jpg" alt="Gavi with frog">
+          <img src="images/Students_outdoors_eben_parnyan_kim_rock_creek_park_middle_school_nature.jpg" alt="Gavi with frog">
           <div class="scrapbook-caption"><strong>D —</strong> Gavi shows off a frog in Rock Creek.</div>
         </div>
         <div class="scrapbook-item">
-          <img src="Fieldtrip_students_museum_middle_school_one_boy_with_glasses_at_display.jpg" alt="Solomon at NGA Paint and Play">
+          <img src="images/Fieldtrip_students_museum_middle_school_one_boy_with_glasses_at_display.jpg" alt="Solomon at NGA Paint and Play">
           <div class="scrapbook-caption"><strong>E —</strong> Solomon checks out the Paint &amp; Play at the National Gallery of Art.</div>
         </div>
         <div class="scrapbook-item">
-          <img src="Students_Cal_Eben_Snow_IMG_2321.jpg" alt="Cal and Ebenezer">
+          <img src="images/Students_Cal_Eben_Snow_IMG_2321.jpg" alt="Cal and Ebenezer">
           <div class="scrapbook-caption"><strong>F —</strong> Cal and Ebenezer hanging out.</div>
         </div>
         <div class="scrapbook-item">
-          <img src="Students_outside_upper_school_rarely_photographed_kids.jpg" alt="Upper School at Markoff's Haunted Forest">
+          <img src="images/Students_outside_upper_school_rarely_photographed_kids.jpg" alt="Upper School at Markoff's Haunted Forest">
           <div class="scrapbook-caption"><strong>G —</strong> The whole Upper School at Markoff's Haunted Forest. L to R: Noah, Mikiyas, Cristian, Fletcher, Nick, Rafa, and Max.</div>
         </div>
         <div class="scrapbook-item">
-          <img src="field_trip_Williamsburg_ethan_and_kids_bunny_ears_.jpg" alt="Colonial Williamsburg">
+          <img src="images/field_trip_Williamsburg_ethan_and_kids_bunny_ears_.jpg" alt="Colonial Williamsburg">
           <div class="scrapbook-caption"><strong>H —</strong> Jai, Owen, Nicky, Micah, and Ethan in Colonial Williamsburg. Bunny ears not historically accurate.</div>
         </div>
         <div class="scrapbook-item">
-          <img src="Field_trip_williamsburg_owen_and_xavierIMG_9167.jpg" alt="Lunchtime hoops">
+          <img src="images/Field_trip_williamsburg_owen_and_xavierIMG_9167.jpg" alt="Lunchtime hoops">
           <div class="scrapbook-caption"><strong>I —</strong> Lunchtime hoops.</div>
         </div>
         <div class="scrapbook-item">
-          <img src="Classroom_lego_plant_cell_experiential_learning.jpg" alt="Fall Adventure Trip to Calleva">
+          <img src="images/Classroom_lego_plant_cell_experiential_learning.jpg" alt="Fall Adventure Trip to Calleva">
           <div class="scrapbook-caption"><strong>J —</strong> Fall Adventure Trip to Calleva!</div>
         </div>
         <div class="scrapbook-item">
-          <img src="field_trip_esther_at_planet_word.jpg" alt="Esther at Planet Word">
+          <img src="images/field_trip_esther_at_planet_word.jpg" alt="Esther at Planet Word">
           <div class="scrapbook-caption"><strong>K —</strong> Esther paints the mood at Planet Word.</div>
         </div>
         <div class="scrapbook-item">
-          <img src="Field_trip_Mak___Mikiyas_Dia_De_Los_Muertos.jpg" alt="Dia de los Muertos display">
+          <img src="images/Field_trip_Mak___Mikiyas_Dia_De_Los_Muertos.jpg" alt="Dia de los Muertos display">
           <div class="scrapbook-caption"><strong>L —</strong> Mikiyas and Mak at the National Museum of the American Indian's Día de los Muertos display.</div>
         </div>
         <div class="scrapbook-item">
-          <img src="Sam_S_in_forensics.jpg" alt="Miles and Sam in Crime Lab">
+          <img src="images/Sam_S_in_forensics.jpg" alt="Miles and Sam in Crime Lab">
           <div class="scrapbook-caption"><strong>M —</strong> Miles and Sam dig for "bones" in Crime Lab.</div>
         </div>
       </div>
@@ -347,44 +361,44 @@
 
       <div class="houses-grid">
         <div class="house-card teal">
-          <div class="house-header"><img src="Students_classroom_Zach_with_Lego_Picachu_of_his_creation.jpg" alt="Flying Squirrels crest"><div class="house-name">Florence's Flying Squirrels</div></div>
+          <div class="house-header"><img src="images/Students_classroom_Zach_with_Lego_Picachu_of_his_creation.jpg" alt="Flying Squirrels crest"><div class="house-name">Florence's Flying Squirrels</div></div>
           <div class="house-motto-label">Motto</div>
           <div class="house-motto">If thou shall fly, thou shall soar.</div>
           <div class="house-legend">One day an acorn fell out of a tree and landed on a squirrel's head. It was a magical golden acorn, and as soon as the squirrel heard its promise, dragon wings sprouted from its sides! The squirrel has been trying to catch the golden acorn ever since…</div>
         </div>
         <div class="house-card purple">
-          <div class="house-header"><img src="caleb_and_kavin_at_picnic_IMG_8894.jpg" alt="Heck Nags crest"><div class="house-name">Heck Nags</div></div>
+          <div class="house-header"><img src="images/caleb_and_kavin_at_picnic_IMG_8894.jpg" alt="Heck Nags crest"><div class="house-name">Heck Nags</div></div>
           <div class="house-motto-label">Motto</div>
           <div class="house-motto">Knowing is better than wondering.</div>
           <div class="house-legend">Long ago the night sky was only black, deep and endless. In that darkness lived the Heck Nags — mysterious horse-shaped spirits like flowing dark purple water with eyes glowing dark blue, galloping silently across the heavens carrying questions mortals whispered but never dared to answer.</div>
         </div>
         <div class="house-card green">
-          <div class="house-header"><img src="Field_trip_Kids_jumping_NGA_Miyah_ari_genny_leo_z_jumping_from_fountainIMG_9011__1_.jpg" alt="Los Ocho crest"><div class="house-name">Los Ocho Poco Locos</div></div>
+          <div class="house-header"><img src="images/Field_trip_Kids_jumping_NGA_Miyah_ari_genny_leo_z_jumping_from_fountainIMG_9011__1_.jpg" alt="Los Ocho crest"><div class="house-name">Los Ocho Poco Locos</div></div>
           <div class="house-motto-label">Motto</div>
           <div class="house-motto">¡Vámonos!</div>
           <div class="house-legend">Loosely translated to "The Slightly Crazy Eight" — a reference to our eight members, the prevalence of Spanish speakers, and how we celebrate our unique eccentricities. We, Los Ocho, keep our eyes on the prize.</div>
         </div>
         <div class="house-card gold">
-          <div class="house-header"><img src="Students_outside_upper_school_rarely_photographed_kids.jpg" alt="House of the Eclipse crest"><div class="house-name">House of the Eclipse</div></div>
+          <div class="house-header"><img src="images/Students_outside_upper_school_rarely_photographed_kids.jpg" alt="House of the Eclipse crest"><div class="house-name">House of the Eclipse</div></div>
           <div class="house-motto-label">Motto</div>
           <div class="house-motto">What's in the dark comes to light.</div>
           <div class="house-legend">Within the realm of Parkmont there are the Daybreakers and Nightwalkers. When the Daybreakers spread their wings and leave, the old Nightwalkers pick up the mantle and become the new Daybreakers — protectors of the castle.</div>
         </div>
         <div class="house-card blue">
-          <div class="house-header"><img src="Fieldtrip_students_museum_middle_school_one_boy_with_glasses_at_display.jpg" alt="House of the Eagle crest"><div class="house-name">House of the Eagle</div></div>
+          <div class="house-header"><img src="images/Fieldtrip_students_museum_middle_school_one_boy_with_glasses_at_display.jpg" alt="House of the Eagle crest"><div class="house-name">House of the Eagle</div></div>
           <div class="house-motto-label">Motto</div>
           <div class="house-motto">Unfocused and determined.</div>
           <div class="house-legend">Long ago there was a wizard named Rhodes. He had three squires he taught many things. One turns out to be a queen of her own kingdom. The other two are almost ready for their own quest.</div>
         </div>
         <div class="house-card red">
-          <div class="house-header"><img src="scrapbook_hayride_isla_mattias_wesley_matt.jpg" alt="Chill Cheetahs crest"><div class="house-name">Chill Cheetahs</div></div>
+          <div class="house-header"><img src="images/scrapbook_hayride_isla_mattias_wesley_matt.jpg" alt="Chill Cheetahs crest"><div class="house-name">Chill Cheetahs</div></div>
           <div class="house-motto-label">Motto</div>
           <div class="house-motto">Stay woke!</div>
           <div class="house-legend">One day we were all running from different cheetahs — a metaphor for running from what is scary and unsafe — and needed a safe space to recuperate. All of us found one another and ended up finding family.</div>
         </div>
       </div>
       <div class="house-card gray" style="margin-bottom:20px;">
-        <div class="house-header"><img src="Classroom_lego_plant_cell_experiential_learning.jpg" alt="Underground Dwellers crest"><div class="house-name">The Underground Dwellers</div></div>
+        <div class="house-header"><img src="images/Classroom_lego_plant_cell_experiential_learning.jpg" alt="Underground Dwellers crest"><div class="house-name">The Underground Dwellers</div></div>
         <div class="house-motto-label">Motto</div>
         <div class="house-motto" style="color:#666;">Pacificus, Tranquillitas, Atlaticus — Calm and Peaceful dwellers of the Down Deep.</div>
         <div class="house-legend">We are descendants of the lost Atlatians, calm and comfortable in the vast, deep spaces below all others.</div>
@@ -412,7 +426,7 @@
         <p>Starting with the history of robotics and AI, students learn what goes into building and programming a robot, assemble closed circuits, learn block-based coding with Micro:bits and in Scratch, and finish the session by building their very own robots using the Lego Robot Inventor Kit.</p>
       </div>
 
-      <img src="Students_classroom_science_Miles_Sam_S_florence_s_class.jpg" alt="Students on a field trip" class="photo-full">
+      <img src="images/Students_classroom_science_Miles_Sam_S_florence_s_class.jpg" alt="Students on a field trip" class="photo-full">
 
       <div class="section-header">Upper School</div>
       <div class="lesson">
@@ -440,7 +454,7 @@
         <p>A high-level overview of the world of computing — from the origin of computers to writing code in JavaScript, HTML, and CSS — culminating in building a complete webpage. All topics are connected to how technology affects us today and where it's headed.</p>
       </div>
 
-      <img src="Field_trip_students_korean_embassy_comp_gov.jpg" alt="Upper school students at the Korean Cultural Center" class="photo-full">
+      <img src="images/Field_trip_students_korean_embassy_comp_gov.jpg" alt="Upper school students at the Korean Cultural Center" class="photo-full">
     </article>
 
     <!-- THE PARKMONT DISH -->
@@ -455,7 +469,7 @@
         <div class="recipe-body">
           <p class="recipe-intro">A dinner that's both bright and hearty really hits the spot on a cold evening. This recipe for baked salmon with yogurt and warm spices — generously shared by Gavi, 6th grade — looks beautiful and tastes delicious. Gavi suggests serving the dish with couscous. If you have leftovers, you're lucky: they'll be terrific on a salad the next day. Enjoy!</p>
           <div class="recipe-img-row">
-            <img src="Salmon_illustration_chat_gpt.jpg" alt="Gavi's salmon with warm spices">
+            <img src="images/Salmon_illustration_chat_gpt.jpg" alt="Gavi's salmon with warm spices">
             <div>
               <div class="recipe-section-title">Ingredients</div>
               <ul class="ingredient-list">
